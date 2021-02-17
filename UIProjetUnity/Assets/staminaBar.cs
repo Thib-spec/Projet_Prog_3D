@@ -7,13 +7,12 @@ public class staminaBar : MonoBehaviour
 {
     
     public Slider slider;
-    public Image fill;
-    public Gradient gradient;
+    [SerializeField] private Image fill;
+    [SerializeField] private Gradient gradient;
    
     public void SetStaminaBar(float stamina)
     {
         slider.value = stamina;
-        fill.color = gradient.Evaluate(slider.value);
         if (slider.value == slider.minValue)
         {
             fill.enabled = false;
@@ -24,6 +23,5 @@ public class staminaBar : MonoBehaviour
     {
         slider.maxValue = maxStamina;
         slider.value = maxStamina;
-        fill.color = gradient.Evaluate(1);
     }
 }

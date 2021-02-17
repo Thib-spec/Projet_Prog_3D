@@ -10,9 +10,10 @@ public class PlayerStamina : MonoBehaviour
     
     public staminaBar staminaBar;
 
-    private WaitForSeconds regen = new WaitForSeconds(0.1f);
+    private WaitForSeconds regenTime = new WaitForSeconds(0.1f);
 
     private Coroutine regenStamina;
+    
     void Start()
     {
         currentStamina = maxStamina;
@@ -25,6 +26,7 @@ public class PlayerStamina : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             decresaseStamina();
+            Debug.Log(currentStamina);
             
         }
         
@@ -42,25 +44,25 @@ public class PlayerStamina : MonoBehaviour
             {
                 StopCoroutine(regenStamina);
             }
+        
+            
             regenStamina = StartCoroutine(increaseStamina());
         }
-        staminaBar.SetStaminaBar(currentStamina);
-     
-
     }
 
     private IEnumerator increaseStamina()
     {
         yield return new WaitForSeconds(2);
-
+    
         while (currentStamina < maxStamina)
-        {
-            Debug.Log(currentStamina);
-            currentStamina += 1;
+        { 
             staminaBar.SetStaminaBar(currentStamina);
-            yield return regen;
+            currentStamina += 1;
+           
+            yield return regenTime;
+            Debug.Log(currentStamina);
         }
         
-        regen = null;
+        regenTime = null;
     }
 }
