@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
 {
-    private int maxStamina= 100;
+    private float maxStamina= 100f;
 
     private float currentStamina;
     
@@ -26,25 +26,22 @@ public class PlayerStamina : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             decresaseStamina();
-            Debug.Log(currentStamina);
-            
         }
-        
-        
+
+
     }
 
     public void decresaseStamina()
     {
         if (currentStamina > 0)
         {
-            currentStamina -= 0.1f;
+            currentStamina -= Time.deltaTime*20;
             staminaBar.SetStaminaBar(currentStamina);
         
             if (regenStamina != null)
             {
                 StopCoroutine(regenStamina);
             }
-        
             
             regenStamina = StartCoroutine(increaseStamina());
         }
@@ -55,14 +52,13 @@ public class PlayerStamina : MonoBehaviour
         yield return new WaitForSeconds(2);
     
         while (currentStamina < maxStamina)
-        { 
+        {
             staminaBar.SetStaminaBar(currentStamina);
             currentStamina += 1;
            
             yield return regenTime;
-            Debug.Log(currentStamina);
         }
         
-        regenTime = null;
+        regenStamina = null;
     }
 }

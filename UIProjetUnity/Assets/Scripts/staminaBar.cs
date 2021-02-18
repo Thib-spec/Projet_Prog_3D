@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +9,21 @@ public class staminaBar : MonoBehaviour
     
     public Slider slider;
     [SerializeField] private Image fill;
-    [SerializeField] private Gradient gradient;
-   
+
     public void SetStaminaBar(float stamina)
     {
         slider.value = stamina;
-        if (slider.value == slider.minValue)
+        if (Math.Abs(slider.value - slider.minValue) == 0)
         {
             fill.enabled = false;
         }
+        else
+        {
+            fill.enabled = true;
+        }
     }
 
-    public void SetMaxStamina(int maxStamina)
+    public void SetMaxStamina(float maxStamina)
     {
         slider.maxValue = maxStamina;
         slider.value = maxStamina;

@@ -19,7 +19,7 @@ public class FlashLight : MonoBehaviour
     public void Start()
     {
         currentBattery = maxBattery;
-        batterybar.SetBatteryBar(maxBattery);
+        batterybar.SetMaxBatteryBar(maxBattery);
         light.SetActive(false);
     }
 
@@ -29,14 +29,9 @@ public class FlashLight : MonoBehaviour
     {
         if (light.activeSelf && currentBattery > 0)
         {
-            StartCoroutine(DecreaseBattery());
-            Debug.Log(currentBattery);
+            DecreaseBattery();
         }
-        else if (currentBattery < 0 || light.activeSelf == false)
-        {
-            StopCoroutine(DecreaseBattery());
-        }
-        
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (!isOn && !hasBeenActivate)
@@ -63,13 +58,10 @@ public class FlashLight : MonoBehaviour
         hasBeenActivate = false;
     }
 
-    private IEnumerator DecreaseBattery()
+    public void DecreaseBattery()
     {
-        while (currentBattery > 0)
-        {
-            currentBattery -= Time.deltaTime;
-            batterybar.SetBatteryBar(currentBattery);
-            yield return new WaitForSeconds(0.5f);
-        }
+        currentBattery -= Time.deltaTime;
+        batterybar.SetBatteryBar(currentBattery);
+
     }
 }
