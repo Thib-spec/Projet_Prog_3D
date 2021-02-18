@@ -20,6 +20,8 @@ public class ButtonBehavior : MonoBehaviour
         Time.timeScale = 1f; /*On redéfinit l'échelle de temps (vitesse à laquelle le temps passe)
         Sur 1 pour que le jeu reprenne normalement, car dans le script gameMenu, lors de l'affichage du Canvas,
         on a arrêté le défilement du jeu*/
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ExitToHome()
