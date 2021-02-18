@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeedOnShift = 0.5f;
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private staminaBar staminaBar;
+    [SerializeField] private Slider staminaBar;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         Vector3 deltaposition = new Vector3(cameraRight.x, 0f, cameraRight.z) * Input.GetAxis("Horizontal") +
                                 new Vector3(cameraforward.x, 0f, cameraforward.z) * Input.GetAxis("Vertical");
         
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") == 1 && staminaBar.slider.value > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") == 1 && staminaBar.value > 0)
         {
             movementSpeed = movementSpeedOnShift;
         }
@@ -40,7 +41,6 @@ public class PlayerController : MonoBehaviour
         {
             movementSpeed = 0.2f;
         }
-        selfTransform.position += deltaposition * movementSpeed;
         rb.MovePosition(rb.position + deltaposition * movementSpeed);
     }
 

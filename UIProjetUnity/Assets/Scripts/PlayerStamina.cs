@@ -8,7 +8,7 @@ public class PlayerStamina : MonoBehaviour
 
     private float currentStamina;
     
-    public staminaBar staminaBar;
+    public StatManager staminaBar;
 
     private WaitForSeconds regenTime = new WaitForSeconds(0.1f);
 
@@ -17,7 +17,7 @@ public class PlayerStamina : MonoBehaviour
     void Start()
     {
         currentStamina = maxStamina;
-        staminaBar.SetMaxStamina(maxStamina);
+        staminaBar.SetMaxBar(maxStamina);
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentStamina > 0)
         {
             currentStamina -= Time.deltaTime*20;
-            staminaBar.SetStaminaBar(currentStamina);
+            staminaBar.SetBar(currentStamina);
         
             if (regenStamina != null)
             {
@@ -53,7 +53,7 @@ public class PlayerStamina : MonoBehaviour
     
         while (currentStamina < maxStamina)
         {
-            staminaBar.SetStaminaBar(currentStamina);
+            staminaBar.SetBar(currentStamina);
             currentStamina += 1;
            
             yield return regenTime;
