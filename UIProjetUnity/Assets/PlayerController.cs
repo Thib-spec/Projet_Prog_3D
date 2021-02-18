@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public void RotateCamera()
     {
-        float pitch = Input.GetAxis("Mouse Y");
+        float pitch = -Input.GetAxis("Mouse Y");
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
 
