@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButtonBehavior : MonoBehaviour
+public class ButtonBehavior : MonoBehaviour
 {
    
     public void Play()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+    
+    public void Exit()
+    {
+        Application.Quit();
     }
     
 }
