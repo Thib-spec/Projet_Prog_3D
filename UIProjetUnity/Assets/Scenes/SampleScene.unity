@@ -171,10 +171,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 106314234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caeb4391c4e11d943a0805fdcf9f5595, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c108a9ef298f874bbbc60565b8077b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 106314237}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.96597755, b: 0.1830188, a: 1}
+    key1: {r: 1, g: 0.96597755, b: 0.1830188, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   fill: {fileID: 525777480}
 --- !u!114 &106314237
 MonoBehaviour:
@@ -401,10 +430,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 227660503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b285770a9c01c49ab8d8d36a7b7a37, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c108a9ef298f874bbbc60565b8077b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 227660505}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.8085624, b: 0.9245283, a: 1}
+    key1: {r: 0, g: 0.8085624, b: 0.9245283, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   fill: {fileID: 998768699}
 --- !u!1 &384944360
 GameObject:
@@ -1061,7 +1119,7 @@ MonoBehaviour:
   movementSpeedOnShift: 1.2
   cameraSensibility: 1
   rb: {fileID: 694076083}
-  staminaBar: {fileID: 227660506}
+  staminaBar: {fileID: 227660505}
 --- !u!114 &694076085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,25 +1355,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 761007191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae7f0aa9904f244f88fbad38ec4601f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c108a9ef298f874bbbc60565b8077b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 761007193}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.9339623, g: 0.09251513, b: 0.09251513, a: 1}
-    key1: {r: 0.9909625, g: 0.87580717, b: 0.87580717, a: 1}
-    key2: {r: 0.9248832, g: 0.9622642, b: 0.086240634, a: 0}
-    key3: {r: 0.020617366, g: 1, b: 0, a: 0}
-    key4: {r: 0.020617366, g: 1, b: 0, a: 0}
+    key0: {r: 0.9245283, g: 0, b: 0, a: 1}
+    key1: {r: 0.99213886, g: 1, b: 0.107547104, a: 1}
+    key2: {r: 0.16382681, g: 0.8679245, b: 0.076966844, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 18119
-    ctime1: 18311
-    ctime2: 39899
+    ctime0: 13107
+    ctime1: 39707
+    ctime2: 65535
     ctime3: 65535
-    ctime4: 65535
+    ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -1328,7 +1386,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 4
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 435830367}
 --- !u!1 &907686503

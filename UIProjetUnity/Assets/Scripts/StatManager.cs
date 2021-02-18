@@ -1,28 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class StatManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Gradient gradient;
     [SerializeField] private Image fill;
-
-    public void SetHealthBar(int health)
+    
+    public void SetBar(float value)
     {
-        slider.value = health;
+        slider.value = value;
         fill.color = gradient.Evaluate(slider.normalizedValue);
-        if (slider.value == slider.minValue)
+        if (Math.Abs(slider.value - slider.minValue) == 0)
         {
             fill.enabled = false;
         }
+        else
+        {
+            fill.enabled = true;
+        }
     }
-
-    public void SetMaxhealth(int maxHealth)
+    
+    public void SetMaxBar(float maxValue)
     {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
-        fill.color = gradient.Evaluate(1);
+        slider.maxValue = maxValue;
+        slider.value = maxValue;
     }
 }

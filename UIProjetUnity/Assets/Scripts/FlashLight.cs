@@ -11,7 +11,7 @@ public class FlashLight : MonoBehaviour
     [SerializeField] private GameObject light;
     private bool hasBeenActivate = false;
     private WaitForSeconds wait = new WaitForSeconds(0.25f);
-    [SerializeField] private BatteryBar batterybar;
+    [SerializeField] private StatManager batterybar;
 
     private float currentBattery;
     private float maxBattery = 100;
@@ -19,7 +19,7 @@ public class FlashLight : MonoBehaviour
     public void Start()
     {
         currentBattery = maxBattery;
-        batterybar.SetMaxBatteryBar(maxBattery);
+        batterybar.SetMaxBar(maxBattery);
         light.SetActive(false);
     }
 
@@ -61,7 +61,7 @@ public class FlashLight : MonoBehaviour
     public void DecreaseBattery()
     {
         currentBattery -= Time.deltaTime;
-        batterybar.SetBatteryBar(currentBattery);
+        batterybar.SetBar(currentBattery);
 
     }
 }
