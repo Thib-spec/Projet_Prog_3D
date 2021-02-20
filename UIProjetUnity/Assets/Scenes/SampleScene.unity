@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 1}
+  m_Color: {r: 0.0039215684, g: 1, b: 0.0956451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 694076085}
   - component: {fileID: 694076086}
   - component: {fileID: 694076087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,6 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1dc8752c3ef754f885f5f7eb19b871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
   healthbar: {fileID: 761007194}
 --- !u!65 &694076079
 BoxCollider:
@@ -1016,7 +1017,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694076077}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1147,6 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light: {fileID: 1504998663}
   batterybar: {fileID: 106314236}
+  battery: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
 --- !u!114 &694076087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,7 +1536,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2352,7 +2354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504998664}
   - component: {fileID: 1504998665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
