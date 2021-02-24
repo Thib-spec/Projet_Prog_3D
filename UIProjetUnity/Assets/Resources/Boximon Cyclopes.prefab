@@ -171,6 +171,8 @@ MonoBehaviour:
   enemy: {fileID: 6988369439730733273}
   player: {fileID: 0}
   anim: {fileID: 6515726083538810418}
+  stats: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
+  healthbar: {fileID: 0}
 --- !u!195 &6988369439730733273
 NavMeshAgent:
   m_ObjectHideFlags: 0

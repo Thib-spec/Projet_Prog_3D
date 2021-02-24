@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform player;
     private Vector3 enemyOrigin;
     [SerializeField] private Animator anim;
+    private float timeDelay = 3f;
+    private float timer;
+    [SerializeField] private Stats stats;
+    private float stopAnim;
+    [SerializeField] private StatManager healthbar;
     
     // Start is called before the first frame update
     void Awake()
@@ -35,6 +41,13 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("Walk Forward",false);
         }
+
+        if (Vector3.Distance(player.position, enemy.transform.position) < 2f)
+        {
+            Debug.Log("attack");
+            anim.SetBool("Walk Forward",false);
+            attack();
+        }
     }
 
     private void setOrientation(Transform player)
@@ -45,9 +58,28 @@ public class EnemyController : MonoBehaviour
 
     private void chasePlayer()
     {
-        if (Vector3.Distance(player.position, enemy.transform.position) > 1f)
+        if (Vector3.Distance(player.position, enemy.transform.position) > 2f)
         {
             enemy.SetDestination(player.position);
         }
+    }
+
+    private void attack()
+    {
+        //Debug.Log("Aie");
+        //if (timer >= timeDelay)
+        //{
+            anim.SetBool("Attack",true);
+            stats.Health -= Time.deltaTime * 5;
+            healthbar.SetBar(stats.Health);
+            //while (stopAnim < timeDelay)
+            //{
+            //    stopAnim += Time.deltaTime;
+            //}
+            //anim.SetBool("Attack",false);
+            //timer = 0;
+            //stopAnim = 0;
+        //}
+        //timer += Time.deltaTime;
     }
 }

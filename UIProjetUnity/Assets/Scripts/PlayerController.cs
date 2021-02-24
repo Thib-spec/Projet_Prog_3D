@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            movementSpeed = 0.02f;
+            movementSpeed = 0.2f;
         }
         rb.MovePosition(rb.position + deltaposition * movementSpeed);
     }

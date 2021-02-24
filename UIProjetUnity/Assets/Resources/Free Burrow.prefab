@@ -860,6 +860,7 @@ MonoBehaviour:
   enemy: {fileID: 1610621365}
   player: {fileID: 0}
   anim: {fileID: 475461621367941430}
+  stats: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
 --- !u!195 &1610621365
 NavMeshAgent:
   m_ObjectHideFlags: 0
