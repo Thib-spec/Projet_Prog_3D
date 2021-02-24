@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Slider staminaBar;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
