@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private Transform player;
     private Vector3 enemyOrigin;
+    [SerializeField] private Animator anim;
     
     // Start is called before the first frame update
     void Awake()
@@ -22,12 +23,18 @@ public class EnemyController : MonoBehaviour
         {
             setOrientation(player);
             chasePlayer();
+            anim.SetBool("Walk Forward",true);
         }
         else if (Vector3.Distance(enemy.transform.position,enemyOrigin) > 1f)
         {
             Debug.Log(enemyOrigin);
             //setOrientation(enemyOrigin);
             enemy.SetDestination(enemyOrigin);
+            anim.SetBool("Walk Forward",true);
+        }
+        else
+        {
+            anim.SetBool("Walk Forward",false);
         }
     }
 

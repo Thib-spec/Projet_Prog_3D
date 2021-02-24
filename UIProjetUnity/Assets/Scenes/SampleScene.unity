@@ -1391,6 +1391,11 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 435830367}
+--- !u!95 &872999856 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1331662608599374437, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
+  m_PrefabInstance: {fileID: 7622741336443638608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907686503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,6 +2880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1331662608599374437, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1382109764086742877, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
       propertyPath: m_Name
       value: Boximon Fiery
@@ -2923,6 +2932,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1520710311356103205, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 872999856}
     - target: {fileID: 1520710311356103205, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
       propertyPath: player
       value: 
