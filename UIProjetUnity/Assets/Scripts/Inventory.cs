@@ -17,6 +17,7 @@ namespace DefaultNamespace
         public static int contentCurrentIndex = 0;
        public Image itemImageUI;
        public TextMeshProUGUI itemNameUI;
+       public TextMeshProUGUI itemDescriptionUI;
 
 
        private void Start()
@@ -84,6 +85,7 @@ namespace DefaultNamespace
             {
                 itemImageUI.sprite = content[contentCurrentIndex].icon;
                 itemNameUI.text = content[contentCurrentIndex].fullName;
+                itemDescriptionUI.text = content[contentCurrentIndex].itemDescription;
             }
             else
             {
