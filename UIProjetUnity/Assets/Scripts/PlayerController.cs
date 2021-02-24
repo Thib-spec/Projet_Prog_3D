@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
+    private bool open;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         RotateCamera();
+        raycastColl();
     }
 
     public void MovePlayer()
@@ -50,5 +52,31 @@ public class PlayerController : MonoBehaviour
 
 
         selfTransform.eulerAngles += new Vector3(pitch, Input.GetAxis("Mouse X"), 0f) * cameraSensibility;
+    }
+
+    private void raycastColl()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit) && hit.collider != null)
+            {
+                if (hit.collider.name == "candle")
+                {
+                    Debug.Log("candle");
+                    //Destroy(hit.collider.transform.GetChild(0).gameObject);
+                }
+
+                
+
+                if (hit.collider.name =="Door")
+                {
+                    hit.collider.GetComponent<Animator>().SetBool("open",!open);
+                    open = !open;
+                }
+            }
+        }
+        
     }
 }
