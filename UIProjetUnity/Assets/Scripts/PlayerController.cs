@@ -59,23 +59,26 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit hit;
+            RaycastHit raycastHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider != null)
+            if (Physics.Raycast(ray, out raycastHit,2f) && raycastHit.collider != null)
             {
-                if (hit.collider.name == "candle")
+                if (raycastHit.collider.name == "candle")
                 {
-                    Debug.Log("candle");
-                    hit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
+                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
                     candleEnabled = !candleEnabled;
                 }
 
                 
 
-                if (hit.collider.name =="Door")
+                if (raycastHit.collider.name =="Door")
                 {
-                    hit.collider.GetComponent<Animator>().SetBool("open",!open);
+                    raycastHit.collider.GetComponent<Animator>().SetBool("open",!open);
                     open = !open;
+                }
+                if (raycastHit.collider.name == "key3")
+                {
+                    Destroy(raycastHit.collider.gameObject);
                 }
             }
         }

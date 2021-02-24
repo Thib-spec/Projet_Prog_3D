@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395340616878126031}
-  - component: {fileID: 4395340617098588995}
   - component: {fileID: 4395340617098588993}
+  - component: {fileID: 803012120}
   m_Layer: 7
   m_Name: key3
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4395340617098588995
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4395340616877761699}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 45.98022
-  m_Center: {x: -11.275604, y: -9.490541, z: -0.000000075690394}
 --- !u!114 &4395340617098588993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
   keyTransform: {fileID: 4395340616878126031}
+  col: {fileID: 2100000, guid: 5f4c9bccf25529e45945b931314bf770, type: 2}
+--- !u!135 &803012120
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395340616877761699}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.9773302
+  m_Center: {x: 0.15859458, y: 3.3187354, z: 0}
 --- !u!1 &4395340616877957979
 GameObject:
   m_ObjectHideFlags: 0
