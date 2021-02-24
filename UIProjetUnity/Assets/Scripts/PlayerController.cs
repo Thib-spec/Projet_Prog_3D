@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
+    [SerializeField] private Stats stats;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -23,6 +25,15 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         RotateCamera();
+        if (stats.OwnKey1)
+        {
+            Debug.Log("Picked Key 1");
+        }
+
+        if (stats.OwnKey2)
+        {
+            Debug.Log("Picked Key 2");
+        }
     }
 
     public void MovePlayer()

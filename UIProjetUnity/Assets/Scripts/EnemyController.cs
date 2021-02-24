@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
         }
         else if (Vector3.Distance(enemy.transform.position,enemyOrigin) > 1f)
         {
-            Debug.Log(enemyOrigin);
             //setOrientation(enemyOrigin);
             enemy.SetDestination(enemyOrigin);
             anim.SetBool("Walk Forward",true);
