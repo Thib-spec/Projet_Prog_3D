@@ -7,11 +7,12 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private Transform player;
+    private Vector3 enemyOrigin;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        enemyOrigin = enemy.transform.position;
     }
 
     // Update is called once per frame
@@ -19,12 +20,18 @@ public class EnemyController : MonoBehaviour
     {
         if (Vector3.Distance(player.position, enemy.transform.position) < 10f)
         {
-            setOrientation();
+            setOrientation(player);
             chasePlayer();
+        }
+        else if (Vector3.Distance(enemy.transform.position,enemyOrigin) > 1f)
+        {
+            Debug.Log(enemyOrigin);
+            //setOrientation(enemyOrigin);
+            enemy.SetDestination(enemyOrigin);
         }
     }
 
-    private void setOrientation()
+    private void setOrientation(Transform player)
     {
         Vector3 direction = player.position - enemy.transform.position;
         enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, Quaternion.LookRotation(direction), 0.1f );

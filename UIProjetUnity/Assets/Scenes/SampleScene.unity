@@ -2875,10 +2875,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1331662608599374437, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1382109764086742877, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
       propertyPath: m_Name
       value: Boximon Fiery
@@ -2931,5 +2927,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 694076082}
+    - target: {fileID: 4016667004257264833, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
+      propertyPath: m_Speed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8a54dfb38a80514088a358d3178f7c9, type: 3}
