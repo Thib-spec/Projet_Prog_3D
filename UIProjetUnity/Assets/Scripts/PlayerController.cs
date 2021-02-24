@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
     private bool open;
+    private bool candleEnabled;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -65,7 +66,8 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider.name == "candle")
                 {
                     Debug.Log("candle");
-                    //Destroy(hit.collider.transform.GetChild(0).gameObject);
+                    hit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
+                    candleEnabled = !candleEnabled;
                 }
 
                 
