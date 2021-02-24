@@ -9,6 +9,7 @@ namespace DefaultNamespace
         private float health;
         private bool ownKey1;
         private bool ownKey2;
+        private bool ownKey3;
         
         public float Battery
         {
@@ -32,6 +33,12 @@ namespace DefaultNamespace
         {
             get => ownKey2;
             set => ownKey2 = value;
+        }
+
+        public bool OwnKey3
+        {
+            get => ownKey3;
+            set => ownKey3 = value;
         }
     }
 }

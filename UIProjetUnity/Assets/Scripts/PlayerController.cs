@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Picked Key 2");
         }
+        
+        if (stats.OwnKey3)
+        {
+            Debug.Log("Picked Key 3");
+        }
     }
 
     public void MovePlayer()
