@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4936635111863572}
   - component: {fileID: 65146355486194748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4804404010955420}
   - component: {fileID: 33729187343615344}
   - component: {fileID: 23580176459738474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4117314157024074}
   - component: {fileID: 33062145462935602}
   - component: {fileID: 23553518627239438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: candel.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4377721818878792}
   - component: {fileID: 108495276615510006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

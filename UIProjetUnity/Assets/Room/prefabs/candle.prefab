@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4269522823682290}
   - component: {fileID: 108546126138138148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177046354630628}
   - component: {fileID: 65455356704917402}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4144370138390098}
   - component: {fileID: 33543221317305588}
   - component: {fileID: 23861732273859570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 4252864622878300}
   - component: {fileID: 33004911311386264}
   - component: {fileID: 23836961831998130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CHs0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

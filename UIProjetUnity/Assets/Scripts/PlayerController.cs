@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +14,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
+    [SerializeField] private Stats stats;
+    [SerializeField] private TextMeshProUGUI interac;
+    private int interactableLayerMask;
+    
     private bool open;
     private bool candleEnabled;
+
+    void Awake()
+    {
+        interactableLayerMask = LayerMask.NameToLayer("Interactable");
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        interac.text = "";
     }
 
     // Update is called once per frame
@@ -57,31 +69,39 @@ public class PlayerController : MonoBehaviour
 
     private void raycastColl()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        RaycastHit raycastHit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out raycastHit,2f,~interactableLayerMask))
         {
-            RaycastHit raycastHit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit,2f) && raycastHit.collider != null)
-            {
-                if (raycastHit.collider.name == "candle")
-                {
-                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
-                    candleEnabled = !candleEnabled;
-                }
-
-                
-
-                if (raycastHit.collider.name =="Door")
-                {
-                    raycastHit.collider.GetComponent<Animator>().SetBool("open",!open);
-                    open = !open;
-                }
-                if (raycastHit.collider.name == "key3")
-                {
-                    Destroy(raycastHit.collider.gameObject);
-                }
-            }
+            interac.text = "Appuyez sur E pour interagir";
+            if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        
+                        {
+                            if (raycastHit.collider.name == "candle")
+                            {
+                                raycastHit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
+                                candleEnabled = !candleEnabled;
+                            }
+                            
+                            if (raycastHit.collider.name =="Door")
+                            {
+                                raycastHit.collider.GetComponent<Animator>().SetBool("open",!open);
+                                open = !open;
+                            }
+                            if (raycastHit.collider.name =="key1" || 
+                                raycastHit.collider.name =="key2" ||
+                                raycastHit.collider.name =="key3")
+                            {
+                                Destroy(raycastHit.collider.gameObject);
+                            }
+                        }
+                    }
         }
-        
+        else
+        {
+            interac.text = "";
+        }
+
     }
 }
