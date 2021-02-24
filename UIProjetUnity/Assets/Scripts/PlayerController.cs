@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
                                 }
                             }
 
-                            if (raycastHit.collider.name == "Door" && stats.OwnKey1)
+                            if (raycastHit.collider.name == "Door") //&& stats.OwnKey1)
                             {
                                 raycastHit.collider.GetComponent<Animator>().SetBool("open", !open);
                                 open = !open;
