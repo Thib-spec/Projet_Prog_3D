@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private int interactableLayerMask;
     
     private bool open;
-    private bool candleEnabled;
+    public static int numberCandlesEnabled;
 
     void Awake()
     {
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         interac.text = "";
+        numberCandlesEnabled = 9;
     }
 
     // Update is called once per frame
@@ -76,23 +77,45 @@ public class PlayerController : MonoBehaviour
             interac.text = "Appuyez sur E pour interagir";
             if (Input.GetKeyDown(KeyCode.E))
                     {
-                        
+
                         {
                             if (raycastHit.collider.name == "candle")
                             {
-                                raycastHit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
-                                candleEnabled = !candleEnabled;
+                                if (raycastHit.collider.transform.GetChild(0).gameObject.activeSelf)
+                                {
+                                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(false);
+                                    raycastHit.collider.transform.GetChild(2).gameObject.SetActive(false);
+                                    numberCandlesEnabled--;
+                                }
+                                else
+                                {
+                                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                                    raycastHit.collider.transform.GetChild(2).gameObject.SetActive(true);
+                                    numberCandlesEnabled++;
+                                }
                             }
-                            
-                            if (raycastHit.collider.name =="Door")
+
+                            if (raycastHit.collider.name == "Door" && stats.OwnKey1)
                             {
-                                raycastHit.collider.GetComponent<Animator>().SetBool("open",!open);
+                                raycastHit.collider.GetComponent<Animator>().SetBool("open", !open);
                                 open = !open;
                             }
-                            if (raycastHit.collider.name =="key1" || 
-                                raycastHit.collider.name =="key2" ||
-                                raycastHit.collider.name =="key3")
+
+                            if (raycastHit.collider.name == "key1")
                             {
+                                stats.OwnKey1 = true;
+                                Destroy(raycastHit.collider.gameObject);
+                            }
+
+                            if (raycastHit.collider.name == "key2")
+                            {
+                                stats.OwnKey2 = true;
+                                Destroy(raycastHit.collider.gameObject);
+                            }
+
+                            if (raycastHit.collider.name == "key3")
+                            {
+                                stats.OwnKey3 = true;
                                 Destroy(raycastHit.collider.gameObject);
                             }
                         }

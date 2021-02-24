@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    public CursorMode cursor = CursorMode.Auto;
-    public Texture2D cursorTexture;
-    public Vector2 hotSpot =Vector2.zero;
+    private bool key1;
     private void Awake()
     {
         //Cursor.SetCursor(cursorTexture,hotSpot,cursor);   
@@ -21,6 +19,10 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerController.numberCandlesEnabled == 0 && !key1)
+        {
+            Instantiate(Resources.Load("key1"), new Vector3(-0.71f, 0.62f, 3.17f), Quaternion.identity).name="key1";
+            key1 = true;
+        }
     }
 }
