@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace DefaultNamespace
 
         public static int contentCurrentIndex = 0;
        public Image itemImageUI;
-       // public Text itemNameUI;
+       public TextMeshProUGUI itemNameUI;
 
 
        private void Start()
@@ -82,7 +83,7 @@ namespace DefaultNamespace
             if(content.Count > 0 )
             {
                 itemImageUI.sprite = content[contentCurrentIndex].icon;
-                //itemNameUI.text = content[contentCurrentIndex].name;
+                itemNameUI.text = content[contentCurrentIndex].fullName;
             }
             else
             {
