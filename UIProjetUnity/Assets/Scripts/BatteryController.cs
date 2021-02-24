@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class BatteryController : MonoBehaviour
 {
     private float energy = 30;
+    [SerializeField] private Stats battery;
+    [SerializeField] private StatManager batterybar;
+    
     // Start is called before the first frame update
     void Start()
+    
     {
         
     }
@@ -23,8 +28,19 @@ public class BatteryController : MonoBehaviour
         Debug.Log("Touch");
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Destroy");
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            BatteryCharge(energy);   
+            
         }
+    }
+    
+    private void BatteryCharge(float energy)
+    {
+        battery.Battery += energy;
+        if (battery.Battery > 100)
+        {
+            battery.Battery = 100;
+        }
+        batterybar.SetBar(battery.Battery);
     }
 }
