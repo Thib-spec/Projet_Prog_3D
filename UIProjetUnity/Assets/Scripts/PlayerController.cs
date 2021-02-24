@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private Transform selfTransform;    
-    [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float movementSpeed = 0.2f;
-    [SerializeField] private float movementSpeedOnShift = 0.5f;
+    [SerializeField] private Transform selfTransform;
+    [SerializeField] private float movementSpeed=4f;
+    [SerializeField] private float movementSpeedOnShift=8f;
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
@@ -28,8 +27,8 @@ public class PlayerController : MonoBehaviour
     public void MovePlayer()
     {
 
-        Vector3 cameraRight = cameraTransform.right;
-        Vector3 cameraforward = cameraTransform.forward;
+        Vector3 cameraRight = selfTransform.right;
+        Vector3 cameraforward = selfTransform.forward;
         Vector3 deltaposition = new Vector3(cameraRight.x, 0f, cameraRight.z) * Input.GetAxis("Horizontal") +
                                 new Vector3(cameraforward.x, 0f, cameraforward.z) * Input.GetAxis("Vertical");
         
@@ -39,9 +38,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            movementSpeed = 0.2f;
+            movementSpeed = 4f;
         }
-        rb.MovePosition(rb.position + deltaposition * movementSpeed);
+        rb.MovePosition(rb.position + deltaposition * (movementSpeed * Time.deltaTime));
     }
 
     public void RotateCamera()
@@ -50,6 +49,6 @@ public class PlayerController : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
 
-        cameraTransform.eulerAngles += new Vector3(pitch, Input.GetAxis("Mouse X"), 0f) * cameraSensibility;
+        selfTransform.eulerAngles += new Vector3(pitch, Input.GetAxis("Mouse X"), 0f) * cameraSensibility;
     }
 }
