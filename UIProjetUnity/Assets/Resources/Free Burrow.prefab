@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 475461621367941430}
   - component: {fileID: 1610621365}
   - component: {fileID: 1275569411}
+  - component: {fileID: 108965111}
   m_Layer: 0
   m_Name: Free Burrow
   m_TagString: Untagged
@@ -883,6 +884,19 @@ MonoBehaviour:
   enemy: {fileID: 1610621365}
   player: {fileID: 0}
   anim: {fileID: 475461621367941430}
+--- !u!65 &108965111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571545339901913590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.947139, z: 0.62554973}
+  m_Center: {x: -5.2972085e-11, y: 0.5060775, z: 0.029615162}
 --- !u!1 &6754481047226936219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,15 +1225,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395340616878126031, guid: 086b13fc54a670949ad826092bb97eec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.91
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4395340616878126031, guid: 086b13fc54a670949ad826092bb97eec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.269
       objectReference: {fileID: 0}
     - target: {fileID: 4395340616878126031, guid: 086b13fc54a670949ad826092bb97eec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.14
+      value: -0.299
       objectReference: {fileID: 0}
     - target: {fileID: 4395340616878126031, guid: 086b13fc54a670949ad826092bb97eec, type: 3}
       propertyPath: m_LocalRotation.w

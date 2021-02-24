@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Slider staminaBar;
     [SerializeField] private Stats stats;
     [SerializeField] private TextMeshProUGUI interac;
+    [SerializeField] private GameObject wallLastScene;
     private int interactableLayerMask;
     
     private bool open;
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
                             {
                                 stats.OwnKey2 = true;
                                 Destroy(raycastHit.collider.gameObject);
+                                Destroy(wallLastScene);
                             }
 
                             if (raycastHit.collider.name == "key3")
