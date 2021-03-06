@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -44,7 +45,6 @@ public class EnemyController : MonoBehaviour
 
         if (Vector3.Distance(player.position, enemy.transform.position) < 2f)
         {
-            Debug.Log("attack");
             anim.SetBool("Walk Forward",false);
             attack();
         }
@@ -66,20 +66,16 @@ public class EnemyController : MonoBehaviour
 
     private void attack()
     {
-        //Debug.Log("Aie");
-        //if (timer >= timeDelay)
-        //{
+        if (stats.Health <= 0)
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
+        else
+        {
             anim.SetBool("Attack",true);
             stats.Health -= Time.deltaTime * 5;
             healthbar.SetBar(stats.Health);
-            //while (stopAnim < timeDelay)
-            //{
-            //    stopAnim += Time.deltaTime;
-            //}
-            //anim.SetBool("Attack",false);
-            //timer = 0;
-            //stopAnim = 0;
-        //}
-        //timer += Time.deltaTime;
+        }
+        
     }
 }

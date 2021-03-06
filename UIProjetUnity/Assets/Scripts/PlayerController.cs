@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour
                             {
                                 stats.OwnKey3 = true;
                                 Destroy(raycastHit.collider.gameObject);
+                                SceneManager.LoadScene("Victory Scene");
                             }
                         }
                     }
