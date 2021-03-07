@@ -6047,6 +6047,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 694076082}
+    - target: {fileID: 1610621365, guid: 07e05a8705a743b4fbcf27c44a7614eb, type: 3}
+      propertyPath: m_WalkableMask
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5798667128291357516, guid: 07e05a8705a743b4fbcf27c44a7614eb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8968,10 +8972,10 @@ GameObject:
   - component: {fileID: 1454971260}
   - component: {fileID: 1454971259}
   m_Layer: 0
-  m_Name: floor
+  m_Name: floor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1454971258
