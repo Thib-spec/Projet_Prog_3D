@@ -36,7 +36,7 @@ public class FlashLight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!isOn && !hasBeenActivate)
+            if (!isOn && !hasBeenActivate && battery.Battery>0f)
             {
                 hasBeenActivate = true;
                 light.SetActive(true);
@@ -52,6 +52,11 @@ public class FlashLight : MonoBehaviour
                 StartCoroutine(CheckLight());
             }
         }
+
+        if (isOn && battery.Battery <= 0f)
+        {
+            light.SetActive(false);
+        }
     }
 
     private IEnumerator CheckLight()
@@ -62,7 +67,7 @@ public class FlashLight : MonoBehaviour
 
     public void DecreaseBattery()
     {
-        battery.Battery -= Time.deltaTime;
+        battery.Battery -= Time.deltaTime*10f;
         batterybar.SetBar(battery.Battery);
 
     }
