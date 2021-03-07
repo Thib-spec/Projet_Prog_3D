@@ -5,7 +5,7 @@ public class ButtonBehavior : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
     }
     
     public void Exit()
