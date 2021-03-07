@@ -88,7 +88,12 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out raycastHit,3f,interactableLayerMask)) //Si le raycast rencontre
         //un objet de type "interactable" (avec lequel on peut interagir)
         {
-            interac.text = "Appuyez sur E pour interagir"; //On modifie le texte affiché au centre de l'écran
+            if (interac.text == "") //Permet de gérer l'affichage du texte selon qu'il soit vide
+            //(si on ne pointe pas vers un objet avec lequel on peut interagir), ou qu'il contienne le texte
+            //indiquant que le joueur ne possède pas la clé
+            {
+                interac.text = "Appuyez sur E pour interagir"; //On modifie le texte affiché au centre de l'écran
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 {
@@ -116,6 +121,12 @@ public class PlayerController : MonoBehaviour
                     {
                         raycastHit.collider.GetComponent<Animator>().SetBool("open", !open);
                         open = !open;
+                    }
+
+                    if (raycastHit.collider.name == "Door" && !stats.OwnKey1) //Si par contre il ne possède pas la
+                    //clé, on modifie le message
+                    {
+                        interac.text = "Vous n'avez pas la clé";
                     }
 
                     if (raycastHit.collider.name == "key1") //Si l'objet pointé est une clé, on modifie
