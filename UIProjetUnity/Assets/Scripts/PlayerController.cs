@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interac;
     [SerializeField] private GameObject wallLastScene; //Correspond au game object du mur qui va être
     //retiré lors de la récupération de la 2ème clé (pour accéder à la dernière salle)
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip missingKeyClip;
     private BatteryController battery;
     private int interactableLayerMask;
 
@@ -127,6 +129,7 @@ public class PlayerController : MonoBehaviour
                     //clé, on modifie le message
                     {
                         interac.text = "Vous n'avez pas la clé";
+                        source.PlayOneShot(missingKeyClip);
                     }
 
                     if (raycastHit.collider.name == "key1") //Si l'objet pointé est une clé, on modifie
