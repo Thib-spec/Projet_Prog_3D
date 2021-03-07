@@ -8,34 +8,22 @@ public class SafeZoneController : MonoBehaviour
 {
     [SerializeField] private Stats health;
     public StatManager healthbar;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay(Collider other) // Lorsque le joueur est dans la zone
     {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (health.Health < 100)
+        if (health.Health < 100) // Si la vie du joueur n'est pas pleine
         {
-            Debug.Log("Regen");
-            RegenHealth();   
+            RegenHealth();   // On soigne le joueur
         }
     }
 
-    private void RegenHealth()
+    private void RegenHealth() // Fonction de soin
     {
-        health.Health += Time.deltaTime * 2;
-        if (health.Health > 100)
+        health.Health += Time.deltaTime * 2; // Augmentation de la vie
+        if (health.Health > 100) // Si la vie dépasse 100
         {
-            health.Health = 100;
+            health.Health = 100; // On la définit manuellement à 100 pour éviter tout problème
         }
-        healthbar.SetBar(health.Health);
+        healthbar.SetBar(health.Health);  // actualisation de l'UI (barre verte)
     }
 }

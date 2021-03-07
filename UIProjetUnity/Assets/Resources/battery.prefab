@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3457753183164082737}
   - component: {fileID: 3436019050744758295}
   - component: {fileID: 1257588523}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battery: {fileID: 11400000, guid: 47dc3daae2def024584f6b7ad0121051, type: 2}
   batterybar: {fileID: 0}
+  interac: {fileID: 0}
 --- !u!65 &1257588523
 BoxCollider:
   m_ObjectHideFlags: 0
