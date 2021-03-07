@@ -10,13 +10,13 @@ public class BatteryController : MonoBehaviour
 
 
 
-    public void BatteryCharge()
+    public void BatteryCharge() //Fonction pour recharger la batterie
     {
         battery.Battery += energy;
         if (battery.Battery > 100)
         {
             battery.Battery = 100;
         }
-        batterybar.SetBar(battery.Battery);
+        batterybar.SetBar(battery.Battery); //On fait la modif sur le UI
     }
 }

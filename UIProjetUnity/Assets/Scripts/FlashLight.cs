@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using DefaultNamespace;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class FlashLight : MonoBehaviour
 {
@@ -14,8 +10,7 @@ public class FlashLight : MonoBehaviour
     private WaitForSeconds wait = new WaitForSeconds(0.25f); // On instancie un nouveau WaitForSeconds pour éviter de l'instancier à chaque appel de la coroutine
     [SerializeField] private StatManager batterybar;
     [SerializeField] private Stats battery;
-
-    //private float currentBattery;
+    
     private static float maxBattery = 100;
 
     public void Start()
@@ -25,8 +20,7 @@ public class FlashLight : MonoBehaviour
         light.SetActive(false);
     }
 
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (light.activeSelf && battery.Battery > 0)

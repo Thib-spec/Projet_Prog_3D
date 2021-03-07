@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMenu : MonoBehaviour
@@ -21,13 +19,13 @@ public class GameMenu : MonoBehaviour
             Time.timeScale = 0f; /*On définit l'échelle de temps (vitesse à laquelle le temps passe)
             Sur 0 pour que le jeu s'arrête dans le temps (jeu ne défile plus)*/
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined; //Indique que le curseur est bloqué dans la fenêtre du jeu
+            Cursor.lockState = CursorLockMode.Confined; //On bloque le curseur dans la fenêtre du jeu
         }
         else
         {
             Time.timeScale = 1f; //On relance le jeu
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked; //On bloque le curseur (il n'est plus mobile) qui n'est plus visible
+            Cursor.lockState = CursorLockMode.Locked; //On replace le curseur au centre de la fenêtre du jeu
 
         }
     }

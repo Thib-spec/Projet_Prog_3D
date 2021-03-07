@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using DefaultNamespace;
 using Unity.Mathematics;
 using UnityEngine;
@@ -13,13 +10,13 @@ public class Key3Controller : MonoBehaviour
     [SerializeField] private Material col;
 
     private int colChange;
-    // Start is called before the first frame update
+
     void Awake()
     {
         player.OwnKey3 = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         y += Time.deltaTime;

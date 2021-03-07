@@ -64,7 +64,8 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(player.position, enemy.transform.position) > 2f)
         {
             enemy.SetDestination(player.position);
-            if (timer >= timeDelay && !source.isPlaying)
+            if (timer >= timeDelay && !source.isPlaying) //On joue le son du monstre après un délai et
+            //si celui-ci n'est pas déjà en train d'être joué
             {
                 source.PlayOneShot(monsterClip);
                 timer = 0;
