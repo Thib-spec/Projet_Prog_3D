@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        interactableLayerMask = LayerMask.NameToLayer("Interactable");
+        interactableLayerMask = LayerMask.GetMask("Interactable");
     }
     void Start()
     {
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         numberCandlesEnabled = 9;
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit raycastHit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out raycastHit,2f,~interactableLayerMask))
+        if (Physics.Raycast(ray, out raycastHit,3f,interactableLayerMask))
         {
             interac.text = "Appuyez sur E pour interagir";
             if (Input.GetKeyDown(KeyCode.E))
