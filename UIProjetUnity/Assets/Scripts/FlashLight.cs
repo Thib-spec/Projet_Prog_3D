@@ -2,23 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using DefaultNamespace;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class FlashLight : MonoBehaviour
 {
-    private bool isOn = false;
+    private bool isOn;
     [SerializeField] private GameObject light;
-    private bool hasBeenActivate = false;
+    private bool hasBeenActivate;
     private WaitForSeconds wait = new WaitForSeconds(0.25f);
     [SerializeField] private StatManager batterybar;
+    [SerializeField] private Stats battery;
 
-    private float currentBattery;
+    //private float currentBattery;
     private float maxBattery = 100;
 
     public void Start()
     {
-        currentBattery = maxBattery;
+        battery.Battery = maxBattery;
         batterybar.SetMaxBar(maxBattery);
         light.SetActive(false);
     }
@@ -27,7 +29,7 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (light.activeSelf && currentBattery > 0)
+        if (light.activeSelf && battery.Battery > 0)
         {
             DecreaseBattery();
         }
@@ -60,8 +62,9 @@ public class FlashLight : MonoBehaviour
 
     public void DecreaseBattery()
     {
-        currentBattery -= Time.deltaTime;
-        batterybar.SetBar(currentBattery);
+        battery.Battery -= Time.deltaTime;
+        batterybar.SetBar(battery.Battery);
 
     }
+    
 }

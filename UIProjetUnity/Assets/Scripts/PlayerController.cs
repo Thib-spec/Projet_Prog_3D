@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -12,11 +15,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Slider staminaBar;
+    [SerializeField] private Stats stats;
+    [SerializeField] private TextMeshProUGUI interac;
+    [SerializeField] private GameObject wallLastScene;
+    private int interactableLayerMask;
+    
     private bool open;
-    private bool candleEnabled;
+    public static int numberCandlesEnabled;
+
+    void Awake()
+    {
+        interactableLayerMask = LayerMask.NameToLayer("Interactable");
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        interac.text = "";
+        numberCandlesEnabled = 9;
     }
 
     // Update is called once per frame
@@ -57,28 +72,63 @@ public class PlayerController : MonoBehaviour
 
     private void raycastColl()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        RaycastHit raycastHit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out raycastHit,2f,~interactableLayerMask))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider != null)
-            {
-                if (hit.collider.name == "candle")
-                {
-                    Debug.Log("candle");
-                    hit.collider.transform.GetChild(0).gameObject.SetActive(candleEnabled);
-                    candleEnabled = !candleEnabled;
-                }
+            interac.text = "Appuyez sur E pour interagir";
+            if (Input.GetKeyDown(KeyCode.E))
+                    {
 
-                
+                        {
+                            if (raycastHit.collider.name == "candle")
+                            {
+                                if (raycastHit.collider.transform.GetChild(0).gameObject.activeSelf)
+                                {
+                                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(false);
+                                    raycastHit.collider.transform.GetChild(2).gameObject.SetActive(false);
+                                    numberCandlesEnabled--;
+                                }
+                                else
+                                {
+                                    raycastHit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                                    raycastHit.collider.transform.GetChild(2).gameObject.SetActive(true);
+                                    numberCandlesEnabled++;
+                                }
+                            }
 
-                if (hit.collider.name =="Door")
-                {
-                    hit.collider.GetComponent<Animator>().SetBool("open",!open);
-                    open = !open;
-                }
-            }
+                            if (raycastHit.collider.name == "Door") //&& stats.OwnKey1)
+                            {
+                                raycastHit.collider.GetComponent<Animator>().SetBool("open", !open);
+                                open = !open;
+                            }
+
+                            if (raycastHit.collider.name == "key1")
+                            {
+                                stats.OwnKey1 = true;
+                                Destroy(raycastHit.collider.gameObject);
+                            }
+
+                            if (raycastHit.collider.name == "key2")
+                            {
+                                stats.OwnKey2 = true;
+                                Destroy(raycastHit.collider.gameObject);
+                                Destroy(wallLastScene);
+                            }
+
+                            if (raycastHit.collider.name == "key3")
+                            {
+                                stats.OwnKey3 = true;
+                                Destroy(raycastHit.collider.gameObject);
+                                SceneManager.LoadScene("Victory Scene");
+                            }
+                        }
+                    }
         }
-        
+        else
+        {
+            interac.text = "";
+        }
+
     }
 }
