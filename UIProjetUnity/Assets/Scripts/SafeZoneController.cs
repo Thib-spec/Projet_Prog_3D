@@ -8,17 +8,6 @@ public class SafeZoneController : MonoBehaviour
 {
     [SerializeField] private Stats health;
     public StatManager healthbar;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -35,6 +24,6 @@ public class SafeZoneController : MonoBehaviour
         {
             health.Health = 100;
         }
-        healthbar.SetBar(health.Health);
+        healthbar.SetBar(health.Health);  // actualisation de l'UI (barre verte)
     }
 }

@@ -6,27 +6,13 @@ using UnityEngine.UI;
 
 public class playerhealth : MonoBehaviour
 {
-    private int maxHealth = 100;
-
-    //private int currentHealth;
+    private static int maxHealth = 100;
     [SerializeField] private Stats health;
 
     public StatManager healthbar;
-    // Start is called before the first frame update
     void Start()
     {
-        health.Health = maxHealth;
+        health.Health = maxHealth;              // Le joueur commence avec sa vie pleine
         healthbar.SetMaxBar(maxHealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void takeDamage(int damage)
-    {
-        health.Health -= damage;
-        healthbar.SetBar(health.Health);
     }
 }

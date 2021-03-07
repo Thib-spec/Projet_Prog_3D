@@ -58,8 +58,9 @@ public class PlayerController : MonoBehaviour
                                 new Vector3(cameraforward.x, 0f, cameraforward.z) * Input.GetAxis("Vertical");
         
         if (Input.GetKey(KeyCode.LeftShift) && Math.Abs(Input.GetAxis("Vertical") - 1) <= 0 && staminaBar.value > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") == 1 && staminaBar.value > 0) // Si notre stamina est supérieure à 0 et que l'on se déplace vers l'avant
         {
-            movementSpeed = movementSpeedOnShift;
+            movementSpeed = movementSpeedOnShift;  // On modifie la vitesse de déplacement pour sprinter
         }
         else
         {
