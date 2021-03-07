@@ -24,7 +24,6 @@ public class SafeZoneController : MonoBehaviour
     {
         if (health.Health < 100)
         {
-            Debug.Log("Regen");
             RegenHealth();   
         }
     }

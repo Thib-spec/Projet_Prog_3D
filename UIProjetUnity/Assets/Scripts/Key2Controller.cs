@@ -22,12 +22,4 @@ public class Key2Controller : MonoBehaviour
         keyTransform.rotation = quaternion.Euler(0,y,0);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown("e"))
-        {
-            player.OwnKey2 = true;
-            Destroy(gameObject);
-        }
-    }
 }

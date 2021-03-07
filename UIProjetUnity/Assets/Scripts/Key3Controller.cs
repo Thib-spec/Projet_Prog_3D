@@ -47,12 +47,4 @@ public class Key3Controller : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown("e"))
-        {
-            player.OwnKey3 = true;
-            Destroy(gameObject);
-        }
-    }
 }

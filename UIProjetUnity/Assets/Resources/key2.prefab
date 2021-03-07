@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5911126189604362129}
   - component: {fileID: 5911126188795508883}
   - component: {fileID: 5911126188795508882}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: key2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 45.98022
-  m_Center: {x: -11.275604, y: -9.490541, z: -0.000000075690394}
+  m_Radius: 3.9773302
+  m_Center: {x: 0.15859458, y: 3.3187354, z: 0}
 --- !u!114 &5911126188795508882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 5911126189604418055}
   - component: {fileID: 5911126189603655073}
   - component: {fileID: 5911126189602519315}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: pPlane3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
