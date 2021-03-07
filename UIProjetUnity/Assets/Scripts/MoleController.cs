@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -16,7 +12,7 @@ public class MoleController : MonoBehaviour
     private float timeDelay = 5f;
     private float timer;
     
-    // Update is called once per frame
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -24,7 +20,8 @@ public class MoleController : MonoBehaviour
         {
             setOrientation(player);
             fleePlayer();
-            if (!source.isPlaying && timer>=timeDelay)
+            if (!source.isPlaying && timer>=timeDelay) //On joue le son de la taupe après un délai
+            //et si celui-ci n'est pas déjà en train d'être joué
             {
                 source.PlayOneShot(moleClip);
                 timer = 0;
@@ -48,7 +45,6 @@ public class MoleController : MonoBehaviour
             {
                 enemy.SetDestination(point);
             }
-            //enemy.SetDestination(new Vector3(Random.Range(-10,10),0f,Random.Range(-10,10)));
         }
     }
     
