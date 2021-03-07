@@ -13,10 +13,10 @@ public class StatManager : MonoBehaviour
     public void SetBar(float value)
     {
         slider.value = value;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        fill.color = gradient.Evaluate(slider.normalizedValue);     // Permet d'avoir un dégradé de couleur pour la barre de vie
         if (Math.Abs(slider.value - slider.minValue) == 0)
         {
-            fill.enabled = false;
+            fill.enabled = false;                                    // Nos barres étant des sliders on désactive le fill pour éviter que la barre contienne un reste de couleur une fois vide
         }
         else
         {

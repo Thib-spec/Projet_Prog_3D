@@ -9,18 +9,18 @@ using Debug = UnityEngine.Debug;
 public class FlashLight : MonoBehaviour
 {
     private bool isOn;
-    [SerializeField] private GameObject light;
+    [SerializeField] private GameObject light;          // on référence notre source de lumière
     private bool hasBeenActivate;
-    private WaitForSeconds wait = new WaitForSeconds(0.25f);
+    private WaitForSeconds wait = new WaitForSeconds(0.25f); // On instancie un nouveau WaitForSeconds pour éviter de l'instancier à chaque appel de la coroutine
     [SerializeField] private StatManager batterybar;
     [SerializeField] private Stats battery;
 
     //private float currentBattery;
-    private float maxBattery = 100;
+    private static float maxBattery = 100;
 
     public void Start()
     {
-        battery.Battery = maxBattery;
+        battery.Battery = maxBattery;               // par défaut on a le max de battery et la lampe torche est éteinte
         batterybar.SetMaxBar(maxBattery);
         light.SetActive(false);
     }
@@ -36,8 +36,8 @@ public class FlashLight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!isOn && !hasBeenActivate && battery.Battery>0f)
-            {
+            if (!isOn && !hasBeenActivate && battery.Battery>0f)        // isOn vérifie si la lampe est éteinte ou non
+            {                                                           // hasBeenActivate agit comme une mémoire pour savoir si on est déjà rentré dans une des deux boucles if
                 hasBeenActivate = true;
                 light.SetActive(true);
                 isOn = true;
@@ -53,7 +53,7 @@ public class FlashLight : MonoBehaviour
             }
         }
 
-        if (isOn && battery.Battery <= 0f)
+        if (isOn && battery.Battery <= 0f)          // Dans le cas où notre batterie est vide on désactive la lampe torche
         {
             light.SetActive(false);
         }
@@ -67,8 +67,8 @@ public class FlashLight : MonoBehaviour
 
     public void DecreaseBattery()
     {
-        battery.Battery -= Time.deltaTime*10f;
-        batterybar.SetBar(battery.Battery);
+        battery.Battery -= Time.deltaTime*10f;      // On diminue la valeur de notre batterie
+        batterybar.SetBar(battery.Battery);         // On actualise l'UI (barre jaune)
 
     }
     

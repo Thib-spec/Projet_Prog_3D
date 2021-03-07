@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BatteryController : MonoBehaviour
 {
-    private float energy = 30;
+    private static float energy = 30;
     [SerializeField] private Stats battery;
     [SerializeField] private StatManager batterybar;
 
