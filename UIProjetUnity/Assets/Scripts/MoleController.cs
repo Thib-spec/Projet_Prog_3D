@@ -11,14 +11,24 @@ public class MoleController : MonoBehaviour
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private Transform player;
     [SerializeField] private Animator anim;
-
+    [SerializeField] private AudioClip moleClip;
+    [SerializeField] private AudioSource source;
+    private float timeDelay = 5f;
+    private float timer;
+    
     // Update is called once per frame
     private void Update()
     {
+        timer += Time.deltaTime;
         if (Vector3.Distance(player.position, enemy.transform.position) < 3f)
         {
             setOrientation(player);
             fleePlayer();
+            if (!source.isPlaying && timer>=timeDelay)
+            {
+                source.PlayOneShot(moleClip);
+                timer = 0;
+            }
             anim.SetBool("Walk Forward",true);
         }
     }

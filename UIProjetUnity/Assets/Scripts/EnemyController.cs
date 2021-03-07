@@ -11,11 +11,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform player;
     private Vector3 enemyOrigin;
     [SerializeField] private Animator anim;
-    private float timeDelay = 3f;
+    private float timeDelay = 5f;
     private float timer;
     [SerializeField] private Stats stats;
     private float stopAnim;
     [SerializeField] private StatManager healthbar;
+    [SerializeField] private AudioClip monsterClip;
+    [SerializeField] private AudioSource source;
     
     // Start is called before the first frame update
     void Awake()
@@ -26,6 +28,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         if (Vector3.Distance(player.position, enemy.transform.position) < 10f)
         {
             setOrientation(player);
@@ -61,21 +64,20 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(player.position, enemy.transform.position) > 2f)
         {
             enemy.SetDestination(player.position);
+            if (timer >= timeDelay && !source.isPlaying)
+            {
+                source.PlayOneShot(monsterClip);
+                timer = 0;
+            }
+            
         }
     }
 
     private void attack()
     {
-        if (stats.Health <= 0)
-        {
-            SceneManager.LoadScene("DeathScene");
-        }
-        else
-        {
-            anim.SetBool("Attack",true);
-            stats.Health -= Time.deltaTime * 5;
-            healthbar.SetBar(stats.Health);
-        }
-        
+        anim.SetBool("Attack",true);
+        stats.Health -= Time.deltaTime * 5;
+        healthbar.SetBar(stats.Health);
+
     }
 }

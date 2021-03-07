@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
@@ -20,9 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject wallLastScene;
     private BatteryController battery;
     private int interactableLayerMask;
-    
+
     private bool open;
-    public static int numberCandlesEnabled;
+    public static int NumberCandlesEnabled;
 
     void Awake()
     {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         interac.text = "";
-        numberCandlesEnabled = 9;
+        NumberCandlesEnabled = 9;
     }
 
     
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         RotateCamera();
         raycastColl();
+        if (stats.Health <= 0)
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
     }
 
     public void MovePlayer()
@@ -52,7 +57,7 @@ public class PlayerController : MonoBehaviour
         Vector3 deltaposition = new Vector3(cameraRight.x, 0f, cameraRight.z) * Input.GetAxis("Horizontal") +
                                 new Vector3(cameraforward.x, 0f, cameraforward.z) * Input.GetAxis("Vertical");
         
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") == 1 && staminaBar.value > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && Math.Abs(Input.GetAxis("Vertical") - 1) <= 0 && staminaBar.value > 0)
         {
             movementSpeed = movementSpeedOnShift;
         }
@@ -89,13 +94,13 @@ public class PlayerController : MonoBehaviour
                                 {
                                     raycastHit.collider.transform.GetChild(0).gameObject.SetActive(false);
                                     raycastHit.collider.transform.GetChild(2).gameObject.SetActive(false);
-                                    numberCandlesEnabled--;
+                                    NumberCandlesEnabled--;
                                 }
                                 else
                                 {
                                     raycastHit.collider.transform.GetChild(0).gameObject.SetActive(true);
                                     raycastHit.collider.transform.GetChild(2).gameObject.SetActive(true);
-                                    numberCandlesEnabled++;
+                                    NumberCandlesEnabled++;
                                 }
                             }
 
