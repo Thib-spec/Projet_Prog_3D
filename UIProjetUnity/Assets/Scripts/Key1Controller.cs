@@ -10,13 +10,13 @@ public class Key1Controller : MonoBehaviour
 
     void Awake()
     {
-        player.OwnKey1 = false;
+        player.OwnKey1 = false; // Initialisation de la possession de la clé
     }
     
     void Update()
     {
         y += Time.deltaTime;
-        keyTransform.rotation = quaternion.Euler(0,y,0);
+        keyTransform.rotation = quaternion.Euler(0,y,0); // Rotation de la clé selon l'axe y
     }
 
 }
