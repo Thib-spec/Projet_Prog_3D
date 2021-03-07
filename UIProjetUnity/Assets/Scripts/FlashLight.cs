@@ -8,7 +8,7 @@ using Debug = UnityEngine.Debug;
 
 public class FlashLight : MonoBehaviour
 {
-    private bool isOn=true;
+    private bool isOn;
     [SerializeField] private GameObject light;
     private bool hasBeenActivate;
     private WaitForSeconds wait = new WaitForSeconds(0.25f);
@@ -36,7 +36,7 @@ public class FlashLight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (isOn && !hasBeenActivate && battery.Battery>0f)
+            if (!isOn && !hasBeenActivate && battery.Battery>0f)
             {
                 hasBeenActivate = true;
                 light.SetActive(true);
@@ -44,7 +44,7 @@ public class FlashLight : MonoBehaviour
                 StartCoroutine(CheckLight());
                 
             }
-            if(!isOn && !hasBeenActivate)
+            if(isOn && !hasBeenActivate)
             {
                 hasBeenActivate = true;
                 light.SetActive(false);

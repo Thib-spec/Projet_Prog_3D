@@ -1901,10 +1901,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: battery
       objectReference: {fileID: 0}
-    - target: {fileID: 3435345882747820563, guid: 1fcd2a5f41a465948a84423f219e7083, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3436019050744758295, guid: 1fcd2a5f41a465948a84423f219e7083, type: 3}
       propertyPath: interac
       value: 
