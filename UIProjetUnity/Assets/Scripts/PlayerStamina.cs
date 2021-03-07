@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
@@ -19,8 +18,7 @@ public class PlayerStamina : MonoBehaviour
         currentStamina = maxStamina;            // le joueur commence avec sa stamina au max
         staminaBar.SetMaxBar(maxStamina);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift))
